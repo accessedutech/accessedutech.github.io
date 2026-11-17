@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Access Edutech Pvt. Ltd. | Skill Development & Education</title>
+  <style>
+    :root {
+      --primary: #0f4c81;
+      --primary-dark: #0a355c;
+      --accent: #f59e0b;
+      --bg-light: #f8fafc;
+      --text-dark: #1e293b;
+      --text-muted: #64748b;
+      --white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      color: var(--text-dark);
+      background-color: var(--white);
+      line-height: 1.6;
+    }
+
+    /* Navbar */
+    header {
+      background: var(--white);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .brand {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand span {
+      color: var(--accent);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    .btn-login {
+      background-color: var(--primary);
+      color: var(--white) !important;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: background-color 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+
+    .btn-login:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #0f4c81 0%, #1e3a8a 100%);
+      color: var(--white);
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 18px;
+      line-height: 1.25;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #e2e8f0;
+      margin-bottom: 32px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary-hero {
+      background-color: var(--accent);
+      color: #111827;
+      padding: 14px 28px;
+      border-radius: 6px;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: opacity 0.2s;
+    }
+
+    .btn-primary-hero:hover {
+      opacity: 0.92;
+    }
+
+    .btn-secondary-hero {
+      border: 2px solid var(--white);
+      color: var(--white);
+      padding: 12px 26px;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .btn-secondary-hero:hover {
+      background: var(--white);
+      color: var(--primary);
+    }
+
+    /* General Sections */
+    section {
+      padding: 70px 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Mission / About */
+    .about-box {
+      background: var(--bg-light);
+      border-left: 5px solid var(--primary);
+      padding: 35px;
+      border-radius: 8px;
+      max-width: 950px;
+      margin: 0 auto;
+      font-size: 1.05rem;
+      color: var(--text-dark);
+    }
+
+    /* Services Grid */
+    .services-bg {
+      background: var(--bg-light);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--white);
+      padding: 28px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      border-top: 4px solid var(--primary);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+    }
+
+    .card h3 {
+      color: var(--primary);
+      margin-bottom: 12px;
+      font-size: 1.2rem;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Team Grid */
+    .team-card {
+      text-align: center;
+      padding: 24px;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      background: var(--white);
+    }
+
+    .team-card h4 {
+      color: var(--primary);
+      font-size: 1.15rem;
+      margin-bottom: 6px;
+    }
+
+    .team-card span {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    /* Contact & Footer */
+    footer {
+      background: #0f172a;
+      color: #cbd5e1;
+      padding: 60px 20px 25px;
+    }
+
+    .footer-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 35px;
+      margin-bottom: 40px;
+    }
+
+    footer h3 {
+      color: var(--white);
+      margin-bottom: 15px;
+      font-size: 1.2rem;
+    }
+
+    footer p, footer a {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    footer a:hover {
+      color: var(--accent);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      border-top: 1px solid #334155;
+      padding-top: 20px;
+      font-size: 0.9rem;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Header -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="brand">Access <span>Edutech</span></a>
+      <nav>
+        <ul>
+          <li><a href="#about">About & Mission</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#team">Core Team</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+          <li>
+            <a href="https://accessedutech.dpdns.org" target="_blank" rel="noopener noreferrer" class="btn-login">
+              ERP Portal Login
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Optimizing Human Potential Through Skill Development &amp; Technology</h1>
+      <p>
+        Enhancing access to opportunities in skill development, employment, education, ICT, quality health, and market linkages for sustainable community growth.
+      </p>
+      <div class="hero-buttons">
+        <a href="https://accessedutech.dpdns.org" target="_blank" rel="noopener noreferrer" class="btn-primary-hero">
+          Login to ERPNext Portal &rarr;
+        </a>
+        <a href="#services" class="btn-secondary-hero">Explore Our Services</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About & Mission -->
+  <section id="about">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Mission</h2>
+        <p>Empowering marginalized and excluded groups through customized social and technical solutions.</p>
+      </div>
+      <div class="about-box">
+        <strong>Access Edutech Private Limited</strong> is a social development venture dedicated to designing customized consulting and technical solutions. With a pool of experienced professionals who have worked alongside national, international, and bilateral organizations, we strengthen development initiatives and create pathways for inclusive growth.
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="services-bg">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Key Verticals</h2>
+        <p>Comprehensive consulting, training, and technology-driven solutions across development sectors.</p>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <h3>Development Solutions</h3>
+          <p>Strategic consulting, project management, and institutional strengthening for non-profits and government bodies.</p>
+        </div>
+        <div class="card">
+          <h3>ICT4 Development</h3>
+          <p>Deploying smart classrooms, digital innovation labs, and open-source enterprise tools to bridge the digital divide.</p>
+        </div>
+        <div class="card">
+          <h3>Employable Skills</h3>
+          <p>Industry-aligned vocational training, IT literacy, and placement support to boost youth employability.</p>
+        </div>
+        <div class="card">
+          <h3>Health &amp; Education</h3>
+          <p>Capacity building for educators and community health initiatives aimed at improving grassroots outcomes.</p>
+        </div>
+        <div class="card">
+          <h3>Productive Livelihood</h3>
+          <p>Supporting rural entrepreneurship, market linkages, and sustainable income generation models.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Team -->
+  <section id="team">
+    <div class="container">
+      <div class="section-title">
+        <h2>Meet Our Core Team</h2>
+        <p>Leadership driving innovation, skill development, and social impact.</p>
+      </div>
+      <div class="grid">
+        <div class="team-card">
+          <h4>Reji Chacko</h4>
+          <span>Managing Director</span>
+        </div>
+        <div class="team-card">
+          <h4>Saiju Chacko</h4>
+          <span>Chief Executive Officer (CEO)</span>
+        </div>
+        <div class="team-card">
+          <h4>Sanjay Mishra</h4>
+          <span>Director, Skill Development</span>
+        </div>
+        <div class="team-card">
+          <h4>Mayank Patel</h4>
+          <span>Director of Technology &amp; Innovation</span>
+        </div>
+        <div class="team-card">
+          <h4>Bhushan Bodkhey</h4>
+          <span>Technical Head</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer & Contact -->
+  <footer id="contact">
+    <div class="footer-grid">
+      <div>
+        <h3>Access Edutech Private Limited</h3>
+        <p>T4, Third Floor, Maruti Nandan Complex,</p>
+        <p>Opp. Sahyog Vihar, Bawadiya Kalan,</p>
+        <p>Gulmohar Colony, Bhopal, Madhya Pradesh 462039</p>
+      </div>
+      <div>
+        <h3>Get in Touch</h3>
+        <p>Phone: +91 98269-04998</p>
+        <p>Phone: +91 70006-50224</p>
+        <a href="mailto:rejichacko@accessedutech.com">rejichacko@accessedutech.com</a>
+        <a href="mailto:sanjaymishra@accessedutech.com">sanjaymishra@accessedutech.com</a>
+      </div>
+      <div>
+        <h3>Quick Links</h3>
+        <a href="https://accessedutech.dpdns.org" target="_blank" rel="noopener noreferrer">ERPNext Staff &amp; Admin Login</a>
+        <a href="#about">Our Mission</a>
+        <a href="#services">Services</a>
+        <a href="#team">Leadership Team</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Access Edutech Pvt. Ltd. | All Rights Reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
